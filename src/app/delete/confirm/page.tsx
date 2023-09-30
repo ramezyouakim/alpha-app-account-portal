@@ -9,6 +9,7 @@ export default function Page({ searchParams }: any) {
   const [otp, setOtp] = useState("")
   const [isDeleted, setIsDeleted] = useState(false)
   const email = searchParams?.email
+  const callback_url = searchParams?.callback_url
 
   const makeCall = async () => {
     const response = await fetch(`${endpoint}/thegatekeeper/account_portal/delete_confirm`, {
@@ -26,6 +27,11 @@ export default function Page({ searchParams }: any) {
       return
     }
     setIsDeleted(true)
+    if (callback_url == undefined || callback_url == "undefined") return
+
+    console.log(callback_url)
+    window.location.href = callback_url
+    return false;
   }
 
   const sumbit = () => {

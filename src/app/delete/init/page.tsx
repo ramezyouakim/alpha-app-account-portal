@@ -6,10 +6,11 @@ import { useRouter } from 'next/navigation';
 const IMGWH = 200;
 const endpoint = process.env.NEXT_PUBLIC_ENDPOINT;
 
-export default function Page() {
+export default function Page({ searchParams }: any) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const router = useRouter();
+    const callback_url = searchParams?.callback_url
 
     const makeCall = async () => {
         const response = await fetch(`${endpoint}/thegatekeeper/account_portal/delete_init`, {
@@ -26,7 +27,7 @@ export default function Page() {
             alert(message?.errorMessageEN || 'Somthing went worng, please try again!')
             return
         }
-        router.push("/delete/confirm?email=" + email)
+        router.replace(`/delete/confirm?callback_url=${callback_url}&email=${email}`)
     }
 
     const sumbit = () => {

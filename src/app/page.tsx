@@ -5,9 +5,9 @@ import { useEffect } from 'react';
 export default function Home() {
   const router = useRouter();
 
-  useEffect(()=>{
+  useEffect(() => {
     router.replace("/delete/init")
-  },[])
+  }, [])
 
   return (
     <h1>Alpha App</h1>
