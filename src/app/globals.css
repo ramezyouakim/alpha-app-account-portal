@@ -10,18 +10,32 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: white;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.colorBG {
+  background-color: #042740;
+  -webkit-box-shadow: -1px 10px 92px -21px rgba(0,0,0,0.47);
+  -moz-box-shadow: -1px 10px 92px -21px rgba(0,0,0,0.47);
+  box-shadow: -1px 10px 92px -21px rgba(0,0,0,0.47);
+  border-radius: 5%;
+}
+
+.fieldConatiner {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#button { 
+  background-color: #FCCD99;
+  color: #042740;
 }
